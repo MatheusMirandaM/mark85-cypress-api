@@ -4,15 +4,16 @@ const { connect } = require('./cypress/support/mongo')
 
 module.exports = defineConfig({
 	e2e: {
-	  viewportWidth: 1920,
-	  viewportHeight: 1080,
-	  baseUrl: 'http://localhost:3333/',
-	  env: {
-		  //snapshotOnly: true,
-		  //requestMode: true
-	  },
+		viewportWidth: 1920,
+		viewportHeight: 1080,
+		baseUrl: 'http://localhost:3333/',
+		screenshotOnRunFailure: false,
+		env: {
+			//snapshotOnly: true,
+			requestMode: true
+		},
 		async setupNodeEvents(on, config) {
-		  const db = await connect()
+			const db = await connect()
 			on('task', {
 				async removeUser(email) {
 					const users = db.collection('users')

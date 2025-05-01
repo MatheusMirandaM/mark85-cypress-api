@@ -58,9 +58,9 @@ Cypress.Commands.add('getUniqueTask', (task, token)=> {
 	})
 })
 
-Cypress.Commands.add('deleteTask', (task, token)=> {
+Cypress.Commands.add('deleteTask', (taskId, token)=> {
 	cy.api({
-		url: '/tasks/' + task,
+		url: '/tasks/' + taskId,
 		method: 'DELETE',
 		headers: {
 			authorization: token
