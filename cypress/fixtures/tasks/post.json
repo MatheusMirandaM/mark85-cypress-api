@@ -1,0 +1,27 @@
+{
+	"create": {
+		"user": {
+			"name": "Matheus Miranda",
+			"email": "matheusmqa@gmail.com",
+			"password": "matheusmqa"
+		},
+		"task": {
+			"name": "Pagar Contas Extras",
+			"tags": [
+				"Spotfy",
+				"Meli+",
+				"Wellhub"
+			]
+		}
+	},
+	"dup": {
+		"user": {
+			"name": "Pedro Miranda",
+			"email": "pedrao@email.com",
+			"password": "pedrom"
+		},
+		"task": {
+			"name": "Fazer Compras"
+		}
+	}
+}

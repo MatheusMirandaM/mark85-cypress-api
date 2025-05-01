@@ -1,0 +1,30 @@
+{
+	"login": {
+		"name": "Kira",
+		"email": "kira@gmail.com",
+		"password": "kira123"
+	},
+	"inv_pass": {
+		"email": "matheusQA@gmail.com",
+		"password": "12345"
+	},
+	"email_404": {
+		"email": "matheus@gmail.com",
+		"password": "matheusqa"
+	},
+	"create": {
+		"name": "Geisa",
+		"email": "geisavovo@gmail.com",
+		"password": "geisavovo"
+	},
+	"dup_email": {
+		"name": "Valeria",
+		"email": "valeriamae@gmail.com",
+		"password": "valeriamae"
+	},
+	"required": {
+		"name": "Maria Julia",
+		"email": "mariajulia@email.com",
+		"password": "mariajulia123"
+	}
+}
