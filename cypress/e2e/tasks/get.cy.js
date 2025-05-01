@@ -56,8 +56,9 @@ describe('GET /tasks/:td', ()=> {
 				cy.postTasks(task, userResp.body.token)
 					.then(taskRasp => {
 						cy.getUniqueTask(taskRasp.body._id, userResp.body.token)
-					}).then(response => {
-						expect(response.status).to.eq(200)
+							.then(response => {
+								expect(response.status).to.eq(200)
+							})
 					})
 			})
 		
