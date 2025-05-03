@@ -10,7 +10,11 @@ module.exports = defineConfig({
 		screenshotOnRunFailure: false,
 		env: {
 			//snapshotOnly: true,
-			requestMode: true
+			requestMode: true,
+			amqpHost: 'https://leopard.lmq.cloudamqp.com/api/queues/vrqwwald',
+			amqpQueue: 'tasks',
+			amqpUser: 'vrqwwald',
+			amqpPass: 'KN_J-KE3h9rY28SDUC2JrnDiKYjjQioq'
 		},
 		async setupNodeEvents(on, config) {
 			const db = await connect()

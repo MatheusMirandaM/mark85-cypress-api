@@ -1,6 +1,6 @@
 Cypress.Commands.add('purgeQueueMesseges', ()=> {
 	cy.api({
-		url: 'https://leopard.lmq.cloudamqp.com/api/queues/vrqwwald/tasks/contents',
+		url: Cypress.env('amqpHost') + '/tasks/contents',
 		method: 'DELETE',
 		auth: {
 			username: 'vrqwwald',
@@ -14,11 +14,11 @@ Cypress.Commands.add('purgeQueueMesseges', ()=> {
 
 Cypress.Commands.add('getQueueMessage', ()=> {
 	cy.api({
-		url: 'https://leopard.lmq.cloudamqp.com/api/queues/vrqwwald/tasks/get',
+		url: Cypress.env('amqpHost') + '/tasks/get',
 		method: 'POST',
 		auth: {
-			username: 'vrqwwald',
-			password: 'KN_J-KE3h9rY28SDUC2JrnDiKYjjQioq'
+			username: Cypress.env('amqpUser'),
+			password: Cypress.env('amqpPass')
 		},
 		body: {
 			'count': 1,
