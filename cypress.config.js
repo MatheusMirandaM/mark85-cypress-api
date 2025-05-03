@@ -1,22 +1,26 @@
 const { defineConfig } = require("cypress");
-
 const { connect } = require('./cypress/support/mongo')
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+
+require('dotenv').config()
 
 module.exports = defineConfig({
 	e2e: {
 		viewportWidth: 1920,
 		viewportHeight: 1080,
-		baseUrl: 'http://localhost:3333/',
+		baseUrl: 'http://localhost:3333/', //process.env.BASE_URL,
 		screenshotOnRunFailure: false,
 		env: {
 			//snapshotOnly: true,
 			requestMode: true,
-			amqpHost: 'https://leopard.lmq.cloudamqp.com/api/queues/vrqwwald',
-			amqpQueue: 'tasks',
-			amqpUser: 'vrqwwald',
-			amqpPass: 'KN_J-KE3h9rY28SDUC2JrnDiKYjjQioq'
+			amqpHost: 'https://leopard.lmq.cloudamqp.com/api/queues/vrqwwald', //process.env.AMQP_HOST,
+			amqpQueue: 'tasks', //process.env.AMQP_QUEUE,
+			amqpUser: 'vrqwwald', //process.env.AMQP_USER,
+			amqpPass: 'KN_J-KE3h9rY28SDUC2JrnDiKYjjQioq', //process.env.AMQP_PASS
+			allure: true
 		},
 		async setupNodeEvents(on, config) {
+			allureWriter(on, config)
 			const db = await connect()
 			on('task', {
 				async removeUser(email) {
@@ -37,6 +41,7 @@ module.exports = defineConfig({
 					return null
 				}
 		  })
+			return config
 	  },
 		
 	},
